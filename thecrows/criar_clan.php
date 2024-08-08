@@ -7,9 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/clans.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <script defer src="./js/snowFlake.js"></script>
     <link rel="stylesheet" href="./css/default.css">
-    <link rel="stylesheet" href="./css/snowFlake.css">
     <title>Clãn</title>
 </head>
 <body>

@@ -17,7 +17,7 @@
     <title>Captura</title>
     
     <!-- PARABENS -->
-    <link rel="stylesheet" href="./css/validar2.css">
+    <link rel="stylesheet" href="./css/validarCreep.css">
     <script defer src="./js/validar.js"></script>
     
 </head>

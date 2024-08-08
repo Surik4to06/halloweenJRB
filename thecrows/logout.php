@@ -18,9 +18,6 @@
     <!-- Logout -->
     <link rel="stylesheet" href="./css/logout.css">
     
-    <!-- Snow Flake -->
-    <link rel="stylesheet" href="./css/snowFlake.css">
-    <script defer src="./js/snowFlake.js"></script>
 </head>
 
 <body>

@@ -15,13 +15,10 @@
     <title>Home</title>
     
     <!-- INDEX -->
-    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/homeCreep.css">
     <script defer src="./js/popup.js"></script>
     <script defer src="./js/perfil.js"></script>
     
-    <!-- Snow Flake -->
-    <link rel="stylesheet" href="./css/snowFlake.css">
-    <script defer src="./js/snowFlake.js"></script>
 </head>
 
 <body>
