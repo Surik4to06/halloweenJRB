@@ -47,7 +47,7 @@ try {
             header("Location: $url");
             exit;
         } else {
-            $_SESSION['error'] = 'Senha incorreta';
+            $_SESSION['error'] = 'Dados incompletos';
             header('Location: ../login');
             exit;
         }

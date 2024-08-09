@@ -50,8 +50,9 @@
                     
                     <div class="profile-buttons">
                         <a id='btnRanking' href='admin'><button>RANKING</button></a>
-                        <a id='btnRankingUser' href='rankPlayers'><button>RANKING</button></a>
-                        <a href="logout"><i id="btnLogout" class="bi bi-box-arrow-right"></i></a>
+                        <a id='btnRankingUser' class="rank_clans" href='rankPlayers'><button>RANKING</button></a>
+                        <a id='btnRankingUser' class="rank_clans" href='clans'><button>CLANS</button></a>
+                        <a id="container_btnLogout" href="logout"><i id="btnLogout" class="bi bi-box-arrow-right"></i></a>
                     </div>
                 </div>
             </div>

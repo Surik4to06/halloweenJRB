@@ -1,4 +1,33 @@
+<?php 
+    include_once './api/sessao.php';
+    include_once __DIR__ . '/db/Database.php';
+    use db\Database;
 
+    $db = new Database();
+    $conn = $db->connect();
+    
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $nome_clan = $_POST['nome_clan'];
+        $senha_clan = $_POST['senha_clan'];
+        $foto_enviada = $_POST['foto_enviada'];
+
+        $sql = "INSERT INTO clan (nome_clan, senha_clan) VALUES (:nome_clan, :senha_clan)";
+
+        // $sql_foto = "INSERT INTO foto_clan () 
+        // VALUES ()";
+            
+        $smt = $conn->prepare($sql);
+        $smt->bindParam(":nome_clan", $nome_clan, PDO::PARAM_STR);
+        $smt->bindParam(":senha_clan", $senha_clan, PDO::PARAM_STR);
+        $smt->execute();
+
+        $clan_id = mysqli_insert_id($conn);
+        $update_user_query = "UPDATE user SET clan_id = $clan_id, cargo = 'leader' WHERE id = $leader_id";
+        mysqli_query($conn, $update_user_query);
+
+        echo 'Clãn criado com sucesso';
+    }
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -12,7 +41,7 @@
 </head>
 <body>
     <div class="container_clan">
-        <form action="api/criarClan" method="POST">
+        <form action="criar_clan" method="POST">
             <h1>Criar Clãn</h1>
             <div class="nome_do_clan">
                 <label for="nome_clan">Nome do Clãn</label>
@@ -36,11 +65,10 @@
                     <input type="file" name="foto_enviada" accept="image/jpeg, image/png, image/jpg" id="input-file">
                 </div>
             </div>
-
-
             <button type="submit">Criar</button>
-            <input type="text" placeholder="Entrar em algum Clãn"><button>Entrar</button>
+            <a href="entrarClan">Entrar em outro clan</a>
         </form>
+
     </div>
 </body>
 </html>
