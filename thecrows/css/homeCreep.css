@@ -242,7 +242,7 @@ body {
     padding: 1rem 1rem;
     border: none;
     border-radius: 5rem;
-    color: var(--white);
-    background-color: var(--blue);
+    color: var(--black);
+    background-color: var(--orange);
     cursor: pointer;
 }
