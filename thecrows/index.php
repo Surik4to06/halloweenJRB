@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="./css/homeCreep.css">
     <script defer src="./js/popup.js"></script>
     <script defer src="./js/perfil.js"></script>
+    <script defer src="./js/menu.js"></script>
     
 </head>
 
@@ -52,10 +53,30 @@
                         <a id='btnRanking' href='admin'><button>RANKING</button></a>
                         <a id='btnRankingUser' class="rank_clans" href='rankPlayers'><button>RANKING</button></a>
                         <a id='btnRankingUser' class="rank_clans" href='clans'><button>CLANS</button></a>
-                        <a id="container_btnLogout" href="logout"><i id="btnLogout" class="bi bi-box-arrow-right"></i></a>
+                        <a href="#"><i id="btnMenu" class="bi bi-list"></i></a>
+
+                        
+
                     </div>
                 </div>
             </div>
+            
+            
+            <div id="menu_lateral">
+                <div class="btnFechar">
+                    <a id="close" href="#">X</a>
+                </div>
+                <ul>
+                    <li>
+                        <a id="container_btnLogout" href="logout">sair da conta<i id="btnLogout" class="bi bi-box-arrow-right"></i></a>
+                    </li>
+                    <li>
+                        <a href="#">mudar foto</a>
+                    </li>    
+                </ul>
+            </div>
+            <div id="overlay" class="overlayMenu"></div>
+
 
             <div> <!-- Nome do Usuário -->
                 <h1 id="username">Nome</h1>
