@@ -24,6 +24,7 @@ try {
     $nome_clan = $dados_pegos["nome"];
 
     $clan_id = $dados_pegos["id"];
+
     // global $clan_id;
     
     if ($clan_id = 0) {

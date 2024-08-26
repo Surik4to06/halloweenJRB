@@ -1,5 +1,6 @@
 <?php
 include_once __DIR__ . '/../db/Database.php';
+include_once './api/sessao.php';
 use db\Database;
 
 $db = new Database();
@@ -12,15 +13,16 @@ $conn = $db->connect();
     
     
     $userId = $_SESSION['usuario']['ID']; // ID do usuário logado
+    $id_cla = $_SESSION['id_cla'];
     
-    // Função para obter informações do clan
-    $id_cla = "SELECT id, nome, codigo_clan, id_foto_clan FROM clan WHERE `id` = ( SELECT `clan_id` FROM `user` WHERE `id` = :id)";
-    $peparar = $conn->prepare($id_cla);
-    $peparar->execute([':id' => $userId]);
-    $dados_pegos = $peparar->fetch(PDO::FETCH_ASSOC);
-    $nome_clan = $dados_pegos["nome"];
+    // // Função para obter informações do clan
+    // $id_cla = "SELECT id, nome, codigo_clan, id_foto_clan FROM clan WHERE `id` = ( SELECT `clan_id` FROM `user` WHERE `id` = :id)";
+    // $peparar = $conn->prepare($id_cla);
+    // $peparar->execute([':id' => $userId]);
+    // $dados_pegos = $peparar->fetch(PDO::FETCH_ASSOC);
+    // $nome_clan = $dados_pegos["nome"];
 
-    $clan_id = $dados_pegos["id"];
+    // $clan_id = $dados_pegos["id"];
     
 function pegarAboboraHash($hash, $conn){
     $sql = "SELECT id, name FROM `abobora` WHERE `hash` =:hashAbobora";
@@ -30,12 +32,12 @@ function pegarAboboraHash($hash, $conn){
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
-function registrarAbobora($clan_id, $hash, $conn){
-
+function registrarAbobora($id_cla, $hash, $conn){
+    $id_cla = $_SESSION['id_cla'];
     $sql = "INSERT INTO rank_clan (id_clan, id_abobora) SELECT user.clan_id, abobora.id FROM user, abobora WHERE user.clan_id = :id_cla AND abobora.hash = :hashAbobora";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':hashAbobora', $hash, PDO::PARAM_STR);
-    $stmt->bindParam(':id_cla', $clan_id, PDO::PARAM_INT);
+    $stmt->bindParam(':id_cla', $id_cla, PDO::PARAM_INT);
     try {
         $stmt->execute();
         return $conn->lastInsertId();
@@ -50,9 +52,8 @@ try {
 
     $abobora = pegarAboboraHash($hash, $conn);
     if ($abobora){
-        global $id_cla;
-
-        $registro = registrarAbobora($clan_id, $hash, $conn);
+        $id_cla = $_SESSION['id_cla'];
+        $registro = registrarAbobora($id_cla, $hash, $conn);
         
         if ($registro){ //registrou corretamente
             $data = json_encode(array(
