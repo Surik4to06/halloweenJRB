@@ -1,0 +1,89 @@
+* {
+    font-size: medium;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container_clan {
+    box-shadow: var(--white) 0 0 1rem;
+    background-color: var(--black);
+    color: var(--red);
+    border-radius: 10px;
+    width: 90vw;
+    height: 70vh;
+    padding: 40px;
+}
+
+.container_clan h1 {
+    margin-bottom: 30px;
+    font-size: 30px;
+    color: var(--white);
+    text-align: center;
+}
+
+.elementos {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 18px;
+}
+
+input {
+    box-shadow: var(--red) 0 0 1rem;
+    margin-top: 30px;
+    width: 100%;
+    border: none;
+    border-radius: 5rem;
+    padding: 1rem 2rem;
+    font-size: medium;
+    outline: none;    
+    background-color: transparent;
+    color: var(--red);
+}
+
+input:hover {
+    box-shadow: var(--white) 0 0 1rem;
+}
+
+form button {
+    box-shadow: var(--red) 0 0 1rem;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: medium;
+    padding: 1rem;
+    border: none;
+    border-radius: 5rem;
+    background-color: transparent;
+    color: var(--red);
+    cursor: pointer;
+    width: 100%;
+}
+
+form button:hover {
+    color: var(--white);
+    background-color: var(--orange);
+    box-shadow: var(--white) 0 0 1rem;
+}
+
+form a {
+    text-decoration: none;
+    color: var(--red);
+}
+
+form a:hover {
+    color: var(--white);
+}
+
+.acao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
