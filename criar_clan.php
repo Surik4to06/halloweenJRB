@@ -14,8 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $codigo_cla = substr(md5(uniqid(rand(), true)), 0, 10); // Gera um código único
     $foto_cla = $_FILES['foto_cla'];
 
-    $nome_foto_cla = date('h-m-S'). '.jpg';
-    move_uploaded_file($foto_cla['tmp_name'], "assets/imagens/fotos_clan/$nome_foto_cla");
+    $nome_foto_cla = $codigo_cla. '.jpg';
+    move_uploaded_file($foto_cla['tmp_name'], "./assets/imagens/fotos_clan/$nome_foto_cla");
 
     $sql = "INSERT INTO clan (nome, codigo_clan, id_lider, id_foto_clan) VALUES (:nome, :cod, :id, :foto_cla)";
     $stmt = $conn->prepare($sql);
