@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $getidclan = $stmt_check->fetch(PDO::FETCH_ASSOC);
         $getidclan = $getidclan['clan_id'];
-        // $stmt_check->fetch();
+
         
         if ($getidclan != 0) {
             echo "Você já pertence a um clã.";
@@ -45,6 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             if ($stmt_update->execute()) {
                 echo "Você entrou no clã com sucesso!";
+                header("Location: ./clan" );
             } else {
                 echo "Erro ao entrar no clã. Por favor, tente novamente.";
             }

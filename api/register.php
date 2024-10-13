@@ -13,6 +13,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['Email']);
     $senha = trim($_POST['Senha']);
     $conSenhar = trim($_POST['ConfirmarSenha']);
+    $foto = $_FILES['foto_perfil'];
+    print_r($foto);
+
+    $nome_arquivo = date('h-m-S'). '.jpg';
+    move_uploaded_file($foto['tmp_name'], "../assets/imagens/perfil/$nome_arquivo");
+    
+        
 
 // Hash da senha$password_hash = hashPassword($password);
 
@@ -47,10 +54,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 header('Location: ../login');
                 exit;
 
-            } else {
+             } else {
                 // Inserir novo usuário no banco de dados
-                $sql = "INSERT INTO `user` (`name`, `email`, `password`, `id_usertype`, `id_photo`) 
-                        VALUES (:Nome, :Email, :Senha_hash, 2, FLOOR(1 + RAND() * 14) )";
+                $sql = "INSERT INTO `user` (`name`, `email`, `password`, `id_usertype`, `foto`) 
+                        VALUES (:Nome, :Email, :Senha_hash, 2, '$nome_arquivo' )";
 
                 $stmt = $conn->prepare($sql);
                 $stmt->bindParam(':Nome', $nome, PDO::PARAM_STR);

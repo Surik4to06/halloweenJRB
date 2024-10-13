@@ -8,7 +8,6 @@ modal.addEventListener('click', () => {
     modal.classList.toggle('oculto');
 });
 
-
 function openModal(id){
     let corvo = window.ListaCorvos[id-1]
     if (corvo['registrado'] == 1){

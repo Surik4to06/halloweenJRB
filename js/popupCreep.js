@@ -13,12 +13,12 @@ function openModal(id){
     let abobora = window.listaDeAbobora[id-1]
     if (abobora['registrado'] == 1){
         cadeadoCreep.classList.add('oculto');
-        imagemCreep.setAttribute("src", `./assets/imagens/abobora${abobora['id']}.jpg`);
+        imagemCreep.setAttribute("src", `./assets/aboboras/abobora${abobora['id']}.jpg`);
     }else{
         cadeadoCreep.classList.remove('oculto');
-        imagemCreep.setAttribute("src", `./assets/imagens/abobora${abobora['id']}.jpg`);
+        imagemCreep.setAttribute("src", `./assets/abobora/abobora${abobora['id']}.jpg`);
     }
     nomeTituloCreep.innerHTML = abobora['name'];
-    descricaoCreep.innerHTML = abobora['tip'];
+    descricaoCreep.innerHTML = abobora['dica'];
     modalCreep.classList.toggle('oculto');
 }

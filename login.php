@@ -27,7 +27,7 @@ if (isset($_SESSION['error'])) {
 </head>
 
 <body>
-    <div class="backgroundImage"></div>
+    <div class="backgroundImage"><img src="./assets/imagens/aboboraLogin.png" alt="" srcset=""></div>
 
     <!-- Exibição do gif e posteriormente o Login -->
     <div id='intro'>
@@ -36,11 +36,11 @@ if (isset($_SESSION['error'])) {
                 <div id="conteudo">
                     <button id="btnIntro">Toque para Iniciar</button>
                 </div>
-                <audio id="audio" style="display: none;">
+                <!-- <audio id="audio" style="display: none;">
                     <source src="./assets/sound/theme.mp3" type="audio/mp3">
-                </audio>
+                </audio> -->
                 <div id="gifContainer">
-                    <img id="gif" src="./assets/gif/intro.gif" alt="intro" style="display: none;">
+                    <img id="gif" src="./assets/gif/introAboboraHalloween.gif" alt="intro" style="display: none;">
                 </div>
             </div>
         </div>
@@ -76,7 +76,7 @@ if (isset($_SESSION['error'])) {
 
 
             <!-- Form de Cadastro -->
-            <form action="./api/register" id="registerForm" method="POST">
+            <form action="./api/register" id="registerForm" method="POST" enctype="multipart/form-data">
                 <div class="inputWithIcon">
                     <input type="text" id="signName" name="Nome" class="form-control" placeholder="Digite seu Nome" required>
                     <i class="bi bi-person-fill"></i>
@@ -92,6 +92,10 @@ if (isset($_SESSION['error'])) {
                 <div class="inputWithIcon">
                     <input type="password" id="signPassword2" name="ConfirmarSenha" class="form-control" placeholder="Confirme sua Senha" required>
                     <i class="bi bi-lock-fill"></i>
+                </div>
+                <div class="inputWithIcon">
+                    <label for="foto_perfil">adicionar foto de perfil</label>
+                    <input type="file" name="foto_perfil" id="foto_perfil" accept="image/*" required>
                 </div>
                 <button type="submit" name="Cadastro">Cadastrar</button>
             </form>

@@ -14,13 +14,31 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     } 
 
+    
 
     function updateClanData(data) {
+        const visibilidadeCod = document.getElementById('visibilidadeCod');
+        visibilidadeCod.addEventListener('click', () => {
+            updateElementText("clan_cod", '...');
+            updateElementAttribute('visibilidadeCod', 'mostrarCod');
+            visibilidadeCod.style.display = 'none';
+            mostrarCod.style.display = 'block';
+        });
+
+        const mostrarCod = document.getElementById('mostrarCod');
+        mostrarCod.addEventListener('click', () => {
+            updateElementText("clan_cod", data.codigoClan);
+            updateElementAttribute('mostrarCod', 'visibilidadeCod');
+            visibilidadeCod.style.display = 'block';
+            mostrarCod.style.display = 'none';
+        });
+
+        updateElementText("clan_cod", data.codigoClan);
         updateElementText("clan_nome_clan", data.clan_nome);
-        // updateElementAttribute("profileImage", "src", `./assets/imagens/fotos_clan/${data.foto_clan}.png`);
+        updateElementAttribute("imgClan", "src", `./assets/imagens/fotos_clan/${data.fotoDoClan}`);
         updateElementText("aboborasColetados", data.numAboborasColetadas);
         updateElementText("aboborasTotais", data.numAboborasTotais);
-        updateElementText("rank_clan", data.rank_clan);
+        // updateElementText("rank_clan", data.rank_clan);
         popularHOME(data.listaDeAbobora);
         window.listaDeAbobora = data.listaDeAbobora;
     }

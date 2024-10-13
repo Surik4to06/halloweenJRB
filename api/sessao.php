@@ -12,18 +12,6 @@ function verificarTempoSessao(){
     $_SESSION['time'] = time();
 }
 
-// Função para obter informações do clan
-$id_cla = "SELECT id, nome, codigo_clan, id_foto_clan FROM clan WHERE `id` = ( SELECT `clan_id` FROM `user` WHERE `id` = :id)";
-$peparar = $conn->prepare($id_cla);
-$peparar->execute([':id' => $userId]);
-$dados_pegos = $peparar->fetch(PDO::FETCH_ASSOC);
-$nome_clan = $dados_pegos["nome"];
-
-$clan_id = $dados_pegos["id"];
-
-$_SESSION['id_cla'] = $clan_id;
-// global $clan_id;
-
 
 function validarSessao(){
     //se nao estiver logado
@@ -49,5 +37,15 @@ function logout(){
     session_unset();
 }
 
+// function mover_foto($vetor_foto) {
+//     if ( !$vetor_foto['error'] ) {
+//         $nome_arquivo = date('dmYhms'). '.jpg';
+//         move_uploaded_file($vetor_foto['tmp_name'], "assets/imagens/perfil/$nome_arquivo");
+//         return $nome_arquivo;
+//     } else {
+//         return 0;
+//     }
+
+// }
 
 ?>

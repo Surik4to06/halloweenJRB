@@ -31,34 +31,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./css/default.css">
-    <title>Home</title>
+    <title>Clã</title>
     
     <!-- INDEX -->
     <link rel="stylesheet" href="./css/homeCreep.css">
     <script defer src="./js/popupCreep.js"></script> 
     <script defer src="./js/perfilClan.js"></script>
-    <script defer src="./js/menu.js"></script>
     <!-- <script defer src="./js/mensagens.js"></script> -->
     
 </head>
 
 <body>
     
-        <div id="menu_lateral">
-            <div class="btnFechar">
-                <a id="close" href="#">X</a>
-            </div>
-            <div class="conteudo">
-                <div class="containerMensagem">
-                    
-                </div>
-                <div>
-                    <!-- <form class="mandarMensagens" action="./api/getMensagens.php" method="POST"> -->
-                    <input type="text" name="inputMgs" id="inputMgs"><button onclick="enviarMensagem()" type="submit"><i class='bx bxs-paper-plane btnEnviar'></i></button>
-                    <!-- </form> -->
-                </div>
-            </div>
-        </div>
     <main class="container">
         <div class="profile"> <!-- Perfil -->
             <!-- <div class="mensagem">
@@ -66,10 +50,11 @@
             </div> -->
             <div id='ajuste'>
                 <div class="picture"> <!-- Foto de perfil -->
-                    <img id="img_clan" src="./assets/imagens/perfil/perfil0.jpg">
+                    <img id="imgClan" src="./assets/imagens/perfil/perfil0.jpg">
                 </div>
                 
                 <div class="profile-user"><!-- Elementos de captura dos corvos | Botões de Pagina Admin e Logout -->
+                    <div class="codigoCla"><button id="mostrarCod"> <img src="./assets//imagens/olhosAbertos.png" alt="mostrar codigo do cla" srcset=""> </button><button id="visibilidadeCod"><img src="./assets/imagens/olhosFechados.png" alt="esconder codigo do cla"></button><p>Codigo: </p> <span id="clan_cod">...</span></div>
                     <div class="scoreBoard"> 
                         <div>
                             <h1> <span id="aboborasColetados">0</span></h1>
@@ -86,8 +71,8 @@
                     </div>
                     
                     <div class="profile-buttons">
-                        <a id='btnRanking' href='admin'><button>RANKING</button></a>
-                        <a href="#"><i id="btnMenu" class='bx bx-chat'></i></a>
+                        <a id='btnRanking' href='index'><button>Voltar</button></a>
+                        <!-- <a href="#"><i id="btnMenu" class='bx bx-chat'></i></a> -->
                     </div>
                     
                 </div>
@@ -101,7 +86,7 @@
         <div class="feed">
             <div class="feedItem">
                 <div class="feedLine"></div>
-                <h2 id="assasinosTitulo">Assasinos</h2>
+                <h2 id="assasinosTitulo">Abóboras</h2>
             </div>
         </div>
         

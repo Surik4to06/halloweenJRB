@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function updatePerfilData(data) {
         updateElementText("username", data.username);
-        updateElementAttribute("profileImage", "src", `./assets/imagens/perfil/perfil${data.foto}.jpg`);
+        updateElementAttribute("profileImage", "src", `./assets/imagens/perfil/${data.foto}`);
         updateElementText("corvosColetados", data.numCorvosColetados);
         updateElementText("corvosTotais", data.numCorvosTotais);
         updateElementText("rank", data.rank);

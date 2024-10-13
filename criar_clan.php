@@ -12,12 +12,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nome_cla = $_POST['nome_clan'];
     $id_lider = $_SESSION['usuario']['ID']; // ID do usuário logado
     $codigo_cla = substr(md5(uniqid(rand(), true)), 0, 10); // Gera um código único
+    $foto_cla = $_FILES['foto_cla'];
 
-    $sql = "INSERT INTO clan (nome, codigo_clan, id_lider) VALUES (:nome, :cod, :id)";
+    $nome_foto_cla = date('h-m-S'). '.jpg';
+    move_uploaded_file($foto_cla['tmp_name'], "assets/imagens/fotos_clan/$nome_foto_cla");
+
+    $sql = "INSERT INTO clan (nome, codigo_clan, id_lider, id_foto_clan) VALUES (:nome, :cod, :id, :foto_cla)";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':nome', $nome_cla);
     $stmt->bindParam(':cod', $codigo_cla);
     $stmt->bindParam(':id', $id_lider);
+    $stmt->bindParam(':foto_cla', $nome_foto_cla);
     
 
     if ($stmt->execute()) {
@@ -49,11 +54,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
     <div class="container_clan">
-        <form action="./criar_clan" method="POST">
+        <form action="./criar_clan" method="POST" enctype="multipart/form-data">
             <h1>Criar Clã</h1>
             <div class="nome_do_clan">
                 <label for="nome_clan">Nome do Clã:</label>
                 <input type="text" name="nome_clan" placeholder="digite o nome do clãn" require>
+            </div>
+            <div class="nome_do_clan">
+                <label for="foto_cla">Nome do Clã:</label>
+                <input type="file" name="foto_cla" placeholder="selecione uma foto" required accept="image/*">
             </div>
             
             <button type="submit">Criar</button>

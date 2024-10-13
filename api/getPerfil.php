@@ -23,7 +23,7 @@ try {
     // Função para obter informações do perfil
     function getUserInfo($userId, $conn)
     {
-        $sql = "SELECT name, id_usertype, id_photo FROM user WHERE id = :userId";
+        $sql = "SELECT name, id_usertype, foto FROM user WHERE id = :userId";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
         $stmt->execute();
@@ -97,6 +97,11 @@ try {
         echo json_encode(array("error" => "Usuário não encontrado"));
         exit;
     }
+
+    if ($userInfo['foto'] == null) {
+        $userInfo['foto'] = '../assets/imagens/foto_defult_clan.png';
+    }
+
     $_SESSION['usuario']["id_usertype"] = $userInfo['id_usertype'];
 
     // Obter número de corvos coletados
@@ -114,7 +119,7 @@ try {
     // Montar resposta JSON
     $response = [
         'username' => $userInfo['name'],
-        'foto' => $userInfo['id_photo'],
+        'foto' => $userInfo['foto'],
         'usertype' => $userInfo['id_usertype'],
         'numCorvosColetados' => $numCorvosColetados,
         'numCorvosTotais' => $numCorvosTotais,

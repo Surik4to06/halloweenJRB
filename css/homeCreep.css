@@ -50,7 +50,6 @@ body {
 }
 
 .profile-user{
-    margin-top: 25px;
     padding: .5rem;
     display: flex;
     flex-direction: column;
@@ -89,99 +88,38 @@ body {
     cursor: pointer;
 }
 
-#btnMenu {
-    color: var(--black);
-    background-color: var(--orange);
-    border-radius: 8px;
-    width: 25px;
-    height: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 22px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin-top: 5px;
-    margin-right: 10px;
-}
-
 #btnLogout {
     font-size: 22px;
 }
 
-#menu_lateral {
-    background-color: var(--orange);
-    height: 100vh;
-    position: fixed;
-    height: 0;
-    width: 0;
-    display: none;
-    font-size: 20px;
-    font-weight: 300;
-    padding: 20px 4%;
-    overflow: hidden;
-    transition: .6s;
-    z-index: 99999;
-}
-
-#menu_lateral.abrirMenuLateral {
+.codigoCla {
+    margin-bottom: 20px;
     display: flex;
-    width: 100%;
-    height: 100%;
-}
-
-#menu_lateral.abrirMenuLateral ~ .overlayMenu {
-    display: block;
-}
-
-#btnFecharMenu {
-    font-size: 20px;
-}
-
-#menu_lateral ul {
-    width: 100%;
+    justify-content: end;
+    color: var(--red);
+    font-size: 16px;
     text-align: right;
-    margin-top: 40px;
+    margin-right: 10px;
+    margin-top: 10px;
 }
 
-#menu_lateral li {
-    list-style: none;
-    margin-top: 30px;
-    padding: 2px 0;
-    height: 30px;
-    width: 100%;
+.codigoCla p {
+    margin-right: 5px;
+    font-size: 16px;
 }
 
-#close {
-    color: var(--black);
-    font-size: 30px;
+.codigoCla img {
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
 }
 
-#menu_lateral li:hover {
-    background-color: var(--black);
-    color: var(--red);
+.codigoCla button {
+    background-color: transparent;
+    border: none;
 }
 
-#menu_lateral a:hover {
-    width: 100%;
-    background-color: var(--black);
-    color: var(--red);
-}
-
-#menu_lateral a {
-    color: var(--black);
-    text-decoration: none;
-}
-
-.overlayMenu {
-    background-color: rgba(0, 0, 0, 0.4);
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 8888;
+#mostrarCod {
     display: none;
 }
 

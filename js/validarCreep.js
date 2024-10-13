@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
         nomeDaAbobora.textContent = "Abóbora Não Existe!";
         foto.setAttribute("src", "./assets/imagens/aboboraNaoEncontrado.png");
         aviso.textContent = "CUIDADO";
-        texto.textContent = "Não faça isso, pois pode acabar se metendo em uma fria!";
+        texto.textContent = "Cuidado, não se meta aonde não foi chamado!";
     }
 
     if (abobora.registro){
