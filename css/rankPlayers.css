@@ -1,3 +1,7 @@
+body {
+    background-color: #000;
+}
+
 #header h1 {
     text-align: center;
     margin-bottom: 20px;
@@ -15,9 +19,13 @@
     font-size: 12px;
 }
 
-.linha {
-    border: solid 2px var(--orange);
+td {
+    text-align: center;
 }
+
+/* .linha {
+    border: solid 2px #000;
+} */
 
 a button{
     margin-top: 10px;

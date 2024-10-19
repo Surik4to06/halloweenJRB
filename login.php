@@ -95,7 +95,7 @@ if (isset($_SESSION['error'])) {
                 </div>
                 <div class="inputWithIcon">
                     <label for="foto_perfil">adicionar foto de perfil</label>
-                    <input type="file" name="foto_perfil" id="foto_perfil" accept="image/*" required>
+                    <input type="file" name="foto_perfil" id="foto_perfil" accept="image/*">
                 </div>
                 <button type="submit" name="Cadastro">Cadastrar</button>
             </form>

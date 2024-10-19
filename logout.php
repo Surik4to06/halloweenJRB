@@ -21,10 +21,10 @@
 </head>
 
 <body>
-    <div class="backgroundImage"></div>
+    
     
     <div id="container" class="container">
-        <h1>ADEUS GAROTO!</h1>
+        <h1>Cuidado por onde anda...</h1>
     </div>
     
 </body>

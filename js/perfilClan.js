@@ -35,7 +35,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         updateElementText("clan_cod", data.codigoClan);
         updateElementText("clan_nome_clan", data.clan_nome);
-        updateElementAttribute("imgClan", "src", `./assets/imagens/fotos_clan/${data.fotoDoClan}`);
+        if (data.fotoDoClan == null) {
+            updateElementAttribute("imgClan", "src", `./assets/imagens/fotos_clan/foto_default_clan.png`);
+        } else {
+            updateElementAttribute("imgClan", "src", `./assets/imagens/fotos_clan/${data.fotoDoClan}`);
+        }
         updateElementText("aboborasColetados", data.numAboborasColetadas);
         updateElementText("aboborasTotais", data.numAboborasTotais);
         // updateElementText("rank_clan", data.rank_clan);

@@ -16,6 +16,7 @@ function pegarAboboraHash($hash, $conn){
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
+
 function registrarAbobora($cla_lider, $hash, $conn){
     $sql = "INSERT INTO `rank_clan`(id_user, id_abobora) SELECT user.id, abobora.id FROM user, abobora WHERE user.id = $cla_lider AND abobora.hash = :hashabobora";
     $stmt = $conn->prepare($sql);
@@ -49,7 +50,7 @@ try {
             $data = json_encode(array(
                 "registro" => FALSE,
                 "abobora" => $abobora,
-                "erro" => 'corvo já capturado.',
+                "erro" => 'Abobora já coletada.',
             ));
 
         }

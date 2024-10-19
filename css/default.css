@@ -31,9 +31,6 @@ html {
     -ms-user-select: none; /* IE10+/Edge */
 }
 
-body{
-    background-color: var(--orange);
-}
 
 /* .backgroundImage{
     position: fixed;

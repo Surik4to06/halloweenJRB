@@ -39,7 +39,7 @@ try {
     // FUNCAO PARA PEGAR TODOS as aboboras REGISTRADO E OS CAPTURADOS EM UMA ARRAY
     function getAboboraResultByUser($lider_cla, $conn){
         $listaDeAbobora = array();
-        $sql = "SELECT a.id AS id, a.name AS name, a.tip AS dica,
+        $sql = "SELECT a.id AS id, a.name AS name, a.tip AS tip,
         IF(rk.id_user IS NOT NULL, 1, 0) AS registrado FROM abobora a
         LEFT JOIN rank_clan rk ON a.id = rk.id_abobora AND rk.id_user = :id_cla_user";
         $stmt = $conn->prepare($sql);

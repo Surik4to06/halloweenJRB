@@ -98,10 +98,6 @@ try {
         exit;
     }
 
-    if ($userInfo['foto'] == null) {
-        $userInfo['foto'] = '../assets/imagens/foto_defult_clan.png';
-    }
-
     $_SESSION['usuario']["id_usertype"] = $userInfo['id_usertype'];
 
     // Obter número de corvos coletados

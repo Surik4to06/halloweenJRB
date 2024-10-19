@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function registroSucesso($id, $nome){
         nomeDaAbobora.textContent = $nome;
-        $id = abobora.Abobora.id;
+        $id = abobora.abobora.id;
         foto.setAttribute("src", `./assets/aboboras/abobora${$id}.jpg`);
         aviso.textContent = "PARABENS";
         // executar confetes
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
         $id = abobora.Abobora.id;
         foto.setAttribute("src", `./assets/aboboras/abobora${$id}.jpg`);
         aviso.textContent = `Abóbora ${$nome} já capturado, `;
-        texto.textContent = "Esse abóbora já foi encontrada, continue procurando as demais.";
+        texto.textContent = "Essa abóbora já foi encontrada, continue procurando as demais.";
     }
 
     function aboboraNaoEncontrado(){
@@ -65,10 +65,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (abobora.registro){
-        registroSucesso(abobora.Abobora.id, abobora.Abobora.name);
+        registroSucesso(abobora.abobora.id, abobora.abobora.name);
     }else{
-        if (abobora.Abobora){
-            jaRegistrado(abobora.Abobora.id, abobora.Abobora.name);
+        if (abobora.abobora){
+            jaRegistrado(abobora.abobora.id, abobora.abobora.name);
         }else{
             aboboraNaoEncontrado();
         }

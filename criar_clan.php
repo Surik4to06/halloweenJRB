@@ -60,9 +60,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <label for="nome_clan">Nome do Clã:</label>
                 <input type="text" name="nome_clan" placeholder="digite o nome do clãn" require>
             </div>
-            <div class="nome_do_clan">
-                <label for="foto_cla">Nome do Clã:</label>
-                <input type="file" name="foto_cla" placeholder="selecione uma foto" required accept="image/*">
+            <div class="nome_do_clan foto">
+                <label for="foto_cla"><img id="imgFoto" src="./assets/imagens/foto_defult_clan.png" alt=""></label>
+                <input id="foto_cla" type="file" name="foto_cla" placeholder="selecione uma foto" required accept="image/*">
             </div>
             
             <button type="submit">Criar</button>
