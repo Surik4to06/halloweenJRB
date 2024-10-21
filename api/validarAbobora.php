@@ -1,11 +1,10 @@
 <?php
-require_once 'getClanInfo.php';
 include_once 'sessao.php';
 include_once __DIR__ . '/../db/Database.php';
 use db\Database;
 
 if (!isset($_GET['hash'])){
-    header('Location: ./index');
+    header('Location: ./clans');
 }
 
 function pegarAboboraHash($hash, $conn){
@@ -18,9 +17,10 @@ function pegarAboboraHash($hash, $conn){
 
 
 function registrarAbobora($cla_lider, $hash, $conn){
-    $sql = "INSERT INTO `rank_clan`(id_user, id_abobora) SELECT user.id, abobora.id FROM user, abobora WHERE user.id = $cla_lider AND abobora.hash = :hashabobora";
+    $sql = "INSERT INTO rank_clan (id_user, id_abobora) SELECT c.id_lider, abobora.id FROM clan c, abobora WHERE c.id_lider = :cla_lider AND abobora.hash = :hashabobora";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':hashabobora', $hash, PDO::PARAM_STR);
+    $stmt->bindParam(':cla_lider', $cla_lider, PDO::PARAM_INT);
     try {
         $stmt->execute();
         return $conn->lastInsertId();
@@ -65,7 +65,7 @@ try {
     
 } catch (Exception $e) {
     echo $e;
-    header('Location: ./index');
+    header('Location: ./clans');
     exit;
 }
 
