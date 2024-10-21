@@ -95,7 +95,7 @@ body {
 
 .picture_clan {
     /* flex: 1 0 0rem; */
-    height: 100%;
+    min-width: 30%;
     max-width: 30%;
 }
 

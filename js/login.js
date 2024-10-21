@@ -17,41 +17,41 @@ login.addEventListener("click", () => {
 // --------------------------------------------------------------------------------------- INTRO
 
 
-const intro = document.getElementById("intro");
-const conteudo = document.getElementById("conteudo");
-const btnIntro = document.getElementById("btnIntro");
-const audio = document.getElementById("audio");
-const gif = document.getElementById("gif");
-let usuarioLogado = localStorage.getItem('usuarioLogado');
+// const intro = document.getElementById("intro");
+// const conteudo = document.getElementById("conteudo");
+// const btnIntro = document.getElementById("btnIntro");
+// const audio = document.getElementById("audio");
+// const gif = document.getElementById("gif");
+// let usuarioLogado = localStorage.getItem('usuarioLogado');
 
-btnIntro.addEventListener("click", () => {
-  exibirTelaInicial(14400);
-  localStorage.setItem('usuarioLogado', true);
+// btnIntro.addEventListener("click", () => {
+//   exibirTelaInicial(14400);
+//   localStorage.setItem('usuarioLogado', true);
 
-});
+// });
 
-function iniciar() {
-  if (!usuarioLogado) {
-    console.log('iniciar');
-  } else {
-    intro.remove();
-  }
-}
+// function iniciar() {
+//   if (!usuarioLogado) {
+//     console.log('iniciar');
+//   } else {
+//     intro.remove();
+//   }
+// }
 
-function exibirTelaInicial(duration) {
-  conteudo.style.display = "none";
-  gif.style.display = "block";
+// function exibirTelaInicial(duration) {
+//   conteudo.style.display = "none";
+//   gif.style.display = "block";
 
-  audio.play();
+//   audio.play();
 
-  audio.currentTime = 0;
-  audio.play();
+//   audio.currentTime = 0;
+//   audio.play();
 
-  setTimeout(() => {
-    audio.pause();
-    intro.remove();
-    audio.currentTime = 0;
-  }, duration);
-}
+//   setTimeout(() => {
+//     audio.pause();
+//     intro.remove();
+//     audio.currentTime = 0;
+//   }, duration);
+// }
 
-iniciar();
+// iniciar();

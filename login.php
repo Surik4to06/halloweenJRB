@@ -20,7 +20,6 @@ if (isset($_SESSION['error'])) {
     
     <!-- LOGIN -->
     <link rel="stylesheet" href="./css/loginCreep.css">
-    <link rel="stylesheet" href="./css/intro.css">
     <script defer src="./js/login.js"></script>
 
 
@@ -30,21 +29,21 @@ if (isset($_SESSION['error'])) {
     <div class="backgroundImage"><img src="./assets/imagens/aboboraLogin.png" alt="" srcset=""></div>
 
     <!-- Exibição do gif e posteriormente o Login -->
-    <div id='intro'>
+    <!-- <div id='intro'>
         <div>
             <div>
                 <div id="conteudo">
                     <button id="btnIntro">Toque para Iniciar</button>
                 </div>
-                <!-- <audio id="audio" style="display: none;">
+                <audio id="audio" style="display: none;">
                     <source src="./assets/sound/theme.mp3" type="audio/mp3">
                 </audio> -->
-                <div id="gifContainer">
+                <!-- <div id="gifContainer">
                     <img id="gif" src="./assets/gif/introAboboraHalloween.gif" alt="intro" style="display: none;">
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div class="container">
         <div class="btn">
