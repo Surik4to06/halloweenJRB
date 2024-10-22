@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     const nomeDaAbobora = document.getElementById("nomeDaAbobora");
-    const foto = document.getElementById("fotoAbobora");
-    const aviso = document.getElementById("avisoCreep");
-    const texto = document.getElementById("textoCreep");
+    const fotoAbobora = document.getElementById("fotoAbobora");
+    const avisoCreep = document.getElementById("avisoCreep");
+    const textoCreep = document.getElementById("textoCreep");
 
 
     // solicitar nome
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("Erro ao carregar o perfil completo.");
         });
 
-
+    $id = abobora.abobora.id;
 
     // ----------------------
 
@@ -40,9 +40,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function registroSucesso($id, $nome){
         nomeDaAbobora.textContent = $nome;
-        $id = abobora.abobora.id;
-        foto.setAttribute("src", `./assets/aboboras/abobora${$id}.jpg`);
-        aviso.textContent = "PARABENS";
+        fotoAbobora.setAttribute("src", `./assets/aboboras/abobora${$id}.jpg`);
+        avisoCreep.textContent = "PARABENS";
         // executar confetes
         var script = document.createElement('script');
         script.src = './js/confetes.js';
@@ -50,26 +49,25 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     
     function jaRegistrado($id, $nome){
-        nomeDaAbobora.textContent = "abobora ja coletado";
-        $id = abobora.Abobora.id;
-        foto.setAttribute("src", `./assets/aboboras/abobora${$id}.jpg`);
-        aviso.textContent = `Abóbora ${$nome} já capturado, `;
-        texto.textContent = "Essa abóbora já foi encontrada, continue procurando as demais.";
+        nomeDaAbobora.textContent = "Abóbora ja coletada";
+        fotoAbobora.setAttribute("src", `./assets/aboboras/abobora${$id}.jpg`);
+        avisoCreep.textContent = `${$nome} já capturada`;
+        textoCreep.textContent = "Essa abóbora já foi encontrada, continue procurando as demais.";
     }
 
     function aboboraNaoEncontrado(){
         nomeDaAbobora.textContent = "Abóbora Não Existe!";
-        foto.setAttribute("src", "./assets/imagens/aboboraNaoEncontrado.png");
-        aviso.textContent = "CUIDADO";
-        texto.textContent = "Cuidado, não se meta aonde não foi chamado!";
+        fotoAbobora.setAttribute("src", "./assets/aboboras/abobora1.jpg");
+        avisoCreep.textContent = "CUIDADO";
+        textoCreep.textContent = "Cuidado, não se meta aonde não foi chamado!";
     }
 
     if (abobora.registro){
-        registroSucesso(abobora.abobora.id, abobora.abobora.name);
+        registroSucesso($id, abobora.abobora.name);
     }else{
         if (abobora.abobora){
-            jaRegistrado(abobora.abobora.id, abobora.abobora.name);
-        }else{
+            jaRegistrado($id, abobora.abobora.name);
+        }else {
             aboboraNaoEncontrado();
         }
     }
