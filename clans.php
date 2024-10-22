@@ -49,7 +49,7 @@
                 <img src="./assets/imagens/chat-left-dots-fill.svg" alt="">
             </div> -->
             <div id='ajuste'>
-                <div class="picture"> <!-- Foto de perfil -->
+                <div class="pictureCla"> <!-- Foto de perfil -->
                     <img id="imgClan" src="./assets/imagens/perfil/perfil0.jpg">
                 </div>
                 
@@ -72,6 +72,7 @@
                     
                     <div class="profile-buttons">
                         <a id='btnRanking' href='index'><button>Voltar</button></a>
+                        <a id='btnRanking' href='rankPlayers'><button>Ranking</button></a>
                         <!-- <a href="#"><i id="btnMenu" class='bx bx-chat'></i></a> -->
                     </div>
                     

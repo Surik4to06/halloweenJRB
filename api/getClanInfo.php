@@ -27,6 +27,7 @@ try {
     $_SESSION['cla_id'] = $clan_id;
     $lider_cla = $dados_pegos['id_lider'];
     // global $clan_id;
+    $_SESSION['id_foto_clan'] = $dados_pegos['id_foto_clan'];
 
     $_SESSION['id_lider'] = $lider_cla;
     
@@ -71,29 +72,29 @@ try {
     }
 
     // Função para obter a classificação do clan
-    // function getClanRank($lider_cla, $conn){
-    //     $sql = "WITH rankings AS (
-    //         SELECT row_number() OVER (ORDER BY capturados DESC, menor_tempo ASC) AS ranking, clan, capturados,  SEC_TO_TIME(menor_tempo) AS tempo
-    //         FROM (
-    //             SELECT c.nome AS clan, COUNT(r.id_user) AS capturados,
-    //             AVG(TIMESTAMPDIFF(SECOND, (SELECT MIN(r2.date) FROM rank_clan r2 WHERE r2.id_user = c.id_user), r.date)) AS menor_tempo
-    //             FROM clan u LEFT JOIN rank_clan r ON c.id_user = r2.id_user GROUP BY c.id, c.nome
-    //         ) subquery
-    //     )
-    //     SELECT ranking FROM rankings WHERE clan = (SELECT nome FROM clan WHERE id_lider = :lider);";
+    function getClanRank($lider_cla, $conn){
+        $sql = "WITH rankings AS (
+            SELECT row_number() OVER (ORDER BY capturados DESC, menor_tempo ASC) AS ranking, clan, capturados,  SEC_TO_TIME(menor_tempo) AS tempo
+            FROM (
+                SELECT c.nome AS clan, COUNT(r.id_user) AS capturados,
+                AVG(TIMESTAMPDIFF(SECOND, (SELECT MIN(r2.date) FROM rank_clan r2 WHERE r2.id_user = r.id_user), r.date)) AS menor_tempo
+                FROM clan c LEFT JOIN rank_clan r ON c.id_lider = r.id_user GROUP BY c.id, c.nome
+            ) subquery
+        )
+        SELECT ranking FROM rankings WHERE clan = (SELECT nome FROM clan WHERE id_lider = :lider);";
 
-    //     $stmt = $conn->prepare($sql);
-    //     $stmt->bindParam('lider', $lider_cla, PDO::PARAM_INT);
-    //     $stmt->execute();
-    //     $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':lider', $lider_cla, PDO::PARAM_INT);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    //     // Verificar se houve resultado da consulta
-    //     if ($result) {
-    //         return $result['ranking'];
-    //     } else {
-    //         return '?';
-    //     }
-    // }
+        // Verificar se houve resultado da consulta
+        if ($result) {
+            return $result['ranking'];
+        } else {
+            return '?';
+        }
+    }
 
     // Obter informações do clan
     // $clan_info = getClanInfo($clan_id, $conn);
@@ -112,7 +113,7 @@ try {
     $numAboborasTotais = getNumAboborasTotais($conn);
 
     // Obter classificação do clã
-    // $rank_clan = getClanRank($lider_cla, $conn);
+    $rank_clan = getClanRank($lider_cla, $conn);
 
     // JEFF
     $listaDeAbobora = getAboboraResultByUser($lider_cla, $conn);
@@ -124,7 +125,7 @@ try {
         'numAboborasTotais' => $numAboborasTotais,
         'fotoDoClan' => $dados_pegos['id_foto_clan'],
         'codigoClan' => $dados_pegos['codigo_clan'],
-        // 'rank_clan' => $rank_clan,
+        'rank_clan' => $rank_clan,
         'listaDeAbobora' => $listaDeAbobora,
     ];
 

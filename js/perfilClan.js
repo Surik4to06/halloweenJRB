@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         updateElementText("aboborasColetados", data.numAboborasColetadas);
         updateElementText("aboborasTotais", data.numAboborasTotais);
-        // updateElementText("rank_clan", data.rank_clan);
+        updateElementText("rank_clan", data.rank_clan);
         popularHOME(data.listaDeAbobora);
         window.listaDeAbobora = data.listaDeAbobora;
     }
