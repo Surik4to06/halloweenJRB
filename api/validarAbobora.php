@@ -15,16 +15,27 @@ function pegarAboboraHash($hash, $conn){
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
-
 function registrarAbobora($cla_lider, $hash, $conn){
-    $sql = "INSERT INTO rank_clan (id_user, id_abobora) SELECT c.id_lider, abobora.id FROM clan c, abobora WHERE c.id_lider = :cla_lider AND abobora.hash = :hashabobora";
+    $sql = "SELECT id_user, id_abobora FROM rank_clan WHERE id_user = :id_lider AND id_abobora = (SELECT abobora.id FROM abobora WHERE abobora.hash = :hashabobora)";
     $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':hashabobora', $hash, PDO::PARAM_STR);
-    $stmt->bindParam(':cla_lider', $cla_lider, PDO::PARAM_INT);
-    try {
-        $stmt->execute();
-        return $conn->lastInsertId();
-    }catch(Exception $e){ return FALSE; }
+        $stmt->bindParam(':hashabobora', $hash, PDO::PARAM_STR);
+        $stmt->bindParam(':id_lider', $cla_lider, PDO::PARAM_INT);
+    $stmt->execute();
+    $verificador = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    if ($verificador != null) {
+        return FALSE;
+        header('location: ../clans');
+    } else {
+        $sql = "INSERT INTO rank_clan (id_user, id_abobora) SELECT c.id_lider, abobora.id FROM clan c, abobora WHERE c.id_lider = :cla_lider AND abobora.hash = :hashabobora";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':hashabobora', $hash, PDO::PARAM_STR);
+        $stmt->bindParam(':cla_lider', $cla_lider, PDO::PARAM_INT);
+        try {
+            $stmt->execute();
+            return $conn->lastInsertId();
+        }catch(Exception $e){ return FALSE; }
+    }
 }
 
 try {
@@ -45,7 +56,8 @@ try {
                 "abobora" => $abobora,
                 "erro" => '',
             ));
-        }else{
+
+        }else {
             //ja tem registrado
             $data = json_encode(array(
                 "registro" => FALSE,
@@ -53,12 +65,15 @@ try {
                 "erro" => 'Abobora já coletada.',
             ));
 
+
         }
     }else{
         $data = json_encode(array(
             "registro" => FALSE,
+            "abobora" => $abobora,
             "erro" => 'Abobora não existe !',
         ));
+
     }
     echo "<script>var abobora = $data;</script>";
     $db = null;
