@@ -27,7 +27,7 @@
 
     <canvas id="drawing_canvas"></canvas>
     <div id="container" class="container">
-        <h1><span id="nomeDoCorvo">Nome do Corvo</span></h1>
+        <h1><span id="nomeDoCorvo">Nome do Assasino</span></h1>
 
         <div>
             <img id="fotoCorvo" class="" src="./assets/imagens/corvocapturado.png">

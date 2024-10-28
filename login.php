@@ -5,6 +5,7 @@ if (isset($_SESSION['error'])) {
     $erro = $_SESSION['error'];
     echo "<div class='alert'> $erro </div>";
     unset($_SESSION['error']);
+    
 }
 ?>
 
@@ -27,23 +28,6 @@ if (isset($_SESSION['error'])) {
 
 <body>
     <div class="backgroundImage"><img src="./assets/imagens/aboboraLogin.png" alt="" srcset=""></div>
-
-    <!-- Exibição do gif e posteriormente o Login -->
-    <!-- <div id='intro'>
-        <div>
-            <div>
-                <div id="conteudo">
-                    <button id="btnIntro">Toque para Iniciar</button>
-                </div>
-                <audio id="audio" style="display: none;">
-                    <source src="./assets/sound/theme.mp3" type="audio/mp3">
-                </audio> -->
-                <!-- <div id="gifContainer">
-                    <img id="gif" src="./assets/gif/introAboboraHalloween.gif" alt="intro" style="display: none;">
-                </div>
-            </div>
-        </div>
-    </div> -->
 
     <div class="container">
         <div class="btn">

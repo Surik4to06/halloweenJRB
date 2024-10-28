@@ -22,9 +22,9 @@
     <div id="header">
         <h1>Administrador</h1>
         <form action="./api/admin" method="POST">
-            <button d="btnEncerrar" type="submit" name="executar_query">Encerrar Query</button>
+            <button id="btnEncerrar" type="submit" name="executar_query">Encerrar Brincadeira</button>
         </form>
-        <a href='index'><button>VOLTAR</button></a>
+        <a href='index'><button id="btnVoltar">VOLTAR</button></a>
     </div>
 
     <table>

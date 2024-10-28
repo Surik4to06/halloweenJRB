@@ -3,6 +3,22 @@
     validarSessao();
     
     include_once './api/validarAbobora.php';
+    use db\Database;
+    $db = new Database();
+    $conn = $db->connect();
+    
+    $id_usuario = $_SESSION['usuario']['ID'];
+
+    $sql_check = "SELECT * FROM `user` WHERE id = :id";
+    $stmt_check = $conn->prepare($sql_check);
+    $stmt_check->execute([':id' => $id_usuario]);
+
+    $getidclan = $stmt_check->fetch(PDO::FETCH_ASSOC);
+    $getidclan = $getidclan['clan_id'];
+
+    if ($getidclan == 0) {
+        header('Location: ./criar_clan');
+    }
 ?>
 
 <!DOCTYPE html>

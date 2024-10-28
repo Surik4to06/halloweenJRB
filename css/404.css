@@ -3,6 +3,7 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: var(--black);
 }
 
 
@@ -17,20 +18,21 @@ body{
     max-height: 45rem;
     padding: 2rem;
     border-radius: 1rem;
-    background-color: #FFF;
-    box-shadow: var(--white) 0 0 1rem;
+    color: var(--red);
+    box-shadow: var(--red) 0 0 1rem;
     overflow: hidden;
 }
 
 
 
 a button{
+    margin-top: 20px;
     font-size: medium;
     padding: 0 1rem;
     border: none;
     border-radius: 5rem;
     margin: 1rem 4rem;
-    color: var(--white);
-    background-color: var(--blue);
+    color: var(--black);
+    background-color: var(--orange);
     cursor: pointer;
 }

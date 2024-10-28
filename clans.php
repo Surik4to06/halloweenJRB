@@ -72,7 +72,7 @@
                     
                     <div class="profile-buttons">
                         <a id='btnRanking' href='index'><button>Voltar</button></a>
-                        <a id='btnRanking' href='rankPlayers'><button>Ranking</button></a>
+                        <a id='btnRanking' href='rankCla'><button>Ranking</button></a>
                         <!-- <a href="#"><i id="btnMenu" class='bx bx-chat'></i></a> -->
                     </div>
                     

@@ -7,17 +7,28 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    background-color: var(--orange);
 }
 
 .container_clan {
+    margin-top: -20px;
     max-width: 50rem;
-    box-shadow: var(--white) 0 0 1rem;
     background-color: var(--black);
     color: var(--red);
     border-radius: 10px;
     width: 90vw;
-    height: 70vh;
-    padding: 40px;
+    height: 80vh;
+    padding: 30px;
+}
+
+#voltar {
+    background-color: var(--orange);
+    color: var(--black);
+    border: none;
+    border-radius: 10px;
+    font-size: medium;
+    padding: 5px;
+    margin-bottom: 10px;
 }
 
 .container_clan h1 {
@@ -62,9 +73,14 @@ input {
 #imgFoto {
     width: 100%;
     height: 100%;
+    border-radius: 50%;
 }
 
-input:hover {
+#button_foto {
+    margin-left: 30px;
+}
+
+input:hover, form button:hover {
     box-shadow: var(--white) 0 0 1rem;
 }
 
@@ -82,12 +98,6 @@ form button {
     width: 100%;
 }
 
-form button:hover {
-    color: var(--white);
-    background-color: var(--orange);
-    box-shadow: var(--white) 0 0 1rem;
-}
-
 form a {
     text-decoration: none;
     color: var(--red);
@@ -102,4 +112,26 @@ form a:hover {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+#alert{
+    display: flex;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 2rem;
+    background-color: rgb(255, 30, 30);
+    padding: 1rem;
+    border-radius: 1rem;
+    font-size: medium;
+    color: var(--white);
+    opacity: 1;
+    animation: fadeOut1 linear forwards 0.3s;
+    animation-delay: 2s;
+}
+
+/* -------------------------------------------------------------------- */
+
+@keyframes fadeOut1 {
+    from { opacity: 1; }
+    to { opacity: 0; }
 }

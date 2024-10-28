@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
         updateElementText("clan_cod", data.codigoClan);
         updateElementText("clan_nome_clan", data.clan_nome);
         if (data.fotoDoClan == null) {
-            updateElementAttribute("imgClan", "src", `./assets/imagens/fotos_clan/foto_default_clan.png`);
+            updateElementAttribute("imgClan", "src", `./assets/imagens/perfil/perfil0.jpg`);
         } else {
             updateElementAttribute("imgClan", "src", `./assets/imagens/fotos_clan/${data.fotoDoClan}`);
         }
