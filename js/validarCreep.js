@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function aboboraNaoEncontrado(){
         nomeDaAbobora.textContent = "Abóbora Não Existe!";
-        fotoAbobora.setAttribute("src", "./assets/aboboras/abobora1.jpg");
+        fotoAbobora.setAttribute("src", "./assets/aboboras/aboboraNaoEncontrada.jpg");
         avisoCreep.textContent = "CUIDADO";
         textoCreep.textContent = "Cuidado, não se meta aonde não foi chamado!";
     }

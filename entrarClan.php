@@ -20,7 +20,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $id_clan = $id_clan['id'];
     
-
+    $limite_cla = "SELECT COUNT(clan_id) AS numero FROM user WHERE clan_id = :id";
+    $stmt_limite = $conn->prepare($limite_cla);
+    $stmt_limite->execute(['id' => $id_clan]);
+    $limite = $stmt_limite->fetch(PDO::FETCH_ASSOC);
+    
+    
     if ($stmt) {
         // $stmt->bind_result($id_cla);
         $stmt->fetch();
@@ -33,9 +38,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $getidclan = $stmt_check->fetch(PDO::FETCH_ASSOC);
         $getidclan = $getidclan['clan_id'];
 
-        
-        if ($getidclan != 0) {
-            echo "Você já pertence a um clã.";
+        if ($limite['numero'] >= 3) {
+            $aviso = "Este Cla esta lotado.";
+            echo "<div id='alert'> $aviso </div>";
+
+        } else if ($getidclan != 0) {
+            $aviso = "Você já pertence a um clã.";
+            echo "<div id='alert'> $aviso </div>";
+
         } else {
             // Atualiza o usuário para ser membro do clã
             $sql_update = "UPDATE user SET clan_id = :id_clan, cargo = 'member' WHERE id = :id";
@@ -45,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             if ($stmt_update->execute()) {
                 echo "Você entrou no clã com sucesso!";
-                header("Location: ./clan" );
+                header("Location: clans" );
             } else {
                 echo "Erro ao entrar no clã. Por favor, tente novamente.";
             }
@@ -67,8 +77,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Entrar em um Clã</title>
 </head>
 <body>
-
-        <form class="container_clan" action="./entrarClan" method="POST">
+    <div class="container_clan">
+        <a href="index"><button id="voltar">Voltar</button></a>
+        <form action="./entrarClan" method="POST">
             <h1>Entrar em um Clã</h1>
             <div class="nome_do_clan">
                 <label for="codigo_clan">Código do Clã:</label>
@@ -78,9 +89,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="acao">
                 <button type="submit">Entrar</button>
             </div>
+            <!-- <div id="aviso">Este clã ja esta lotado</div> -->
                 <a href="criar_clan">Criar Clã</a>
         </form>
-
-
+    </div>
 </body>
 </html>

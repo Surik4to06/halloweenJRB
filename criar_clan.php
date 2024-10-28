@@ -54,15 +54,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
     <div class="container_clan">
+        <a href="index"><button id="voltar">Voltar</button></a>
         <form action="./criar_clan" method="POST" enctype="multipart/form-data">
             <h1>Criar Clã</h1>
             <div class="nome_do_clan">
                 <label for="nome_clan">Nome do Clã:</label>
                 <input type="text" name="nome_clan" placeholder="digite o nome do clãn" require>
             </div>
-            <div class="nome_do_clan foto">
+            <div class="nome_do_clan foto img_cla">
                 <label for="foto_cla"><img id="imgFoto" src="./assets/imagens/foto_defult_clan.png" alt=""></label>
-                <input id="foto_cla" type="file" name="foto_cla" placeholder="selecione uma foto" required accept="image/*">
+                <input id="foto_cla" type="file" name="foto_cla" placeholder="selecione uma foto" accept="image/*">
             </div>
             
             <button type="submit">Criar</button>
