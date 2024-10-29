@@ -50,18 +50,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     
     function jaRegistrado($id, $nome){
-        nomeDoCorvo.textContent = "Corvo ja coletado";
+        nomeDoCorvo.textContent = "Assasino ja encontrado";
         $id = crow.corvo.id;
         foto.setAttribute("src", `./assets/imagens/corvo${$id}.jpg`);
-        aviso.textContent = `Corvo ${$nome} já capturado, `;
-        texto.textContent = "Esse corvo já foi destruido, continue procurando os demais.";
+        aviso.textContent = `Assasino ${$nome} já capturado, `;
+        texto.textContent = "Esse assasino já foi encontrado, tente achar os outros...";
     }
 
     function corvoNaoEncontrado(){
-        nomeDoCorvo.textContent = "Corvo Não Existe!";
+        nomeDoCorvo.textContent = "Assasino Não Existe!";
         foto.setAttribute("src", "./assets/imagens/corvoNaoEncontrado.png");
         aviso.textContent = "CUIDADO";
-        texto.textContent = "Não faça isso, pois pode acabar comendo só pipoca!";
+        texto.textContent = "Parece que não tem nenhum assassino aqui meu filho. Ufa, ainda bem salsicha";
     }
 
     if (crow.registro){
