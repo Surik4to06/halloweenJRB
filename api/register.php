@@ -14,9 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $senha = trim($_POST['Senha']);
     $conSenhar = trim($_POST['ConfirmarSenha']);
     $foto = $_FILES['foto_perfil'];
-    print_r($foto);
 
-    $nome_arquivo = date('h-m-S'). '.jpg';
+    $nome_arquivo = $email. '.jpg';
     move_uploaded_file($foto['tmp_name'], "../assets/imagens/perfil/$nome_arquivo");
     
         

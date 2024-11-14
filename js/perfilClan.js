@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function updateClanData(data) {
         const visibilidadeCod = document.getElementById('visibilidadeCod');
         visibilidadeCod.addEventListener('click', () => {
-            updateElementText("clan_cod", '...');
+            updateElementText("clan_cod", '**********');
             updateElementAttribute('visibilidadeCod', 'mostrarCod');
             visibilidadeCod.style.display = 'none';
             mostrarCod.style.display = 'block';
