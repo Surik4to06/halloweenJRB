@@ -35,8 +35,6 @@ try {
         header("Location: criar_clan");
     }
     
-
-
     // FUNCAO PARA PEGAR TODOS as aboboras REGISTRADO E OS CAPTURADOS EM UMA ARRAY
     function getAboboraResultByUser($lider_cla, $conn){
         $listaDeAbobora = array();
@@ -126,7 +124,7 @@ try {
         'fotoDoClan' => $dados_pegos['id_foto_clan'],
         'codigoClan' => $dados_pegos['codigo_clan'],
         'rank_clan' => $rank_clan,
-        'listaDeAbobora' => $listaDeAbobora,
+        // 'listaDeAbobora' => $listaDeAbobora,
     ];
 
     echo json_encode($response_cla);
