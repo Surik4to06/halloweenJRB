@@ -76,9 +76,10 @@ if (isset($_SESSION['error'])) {
                     <input type="password" id="signPassword2" name="ConfirmarSenha" class="form-control" placeholder="Confirme sua Senha" required>
                     <i class="bi bi-lock-fill"></i>
                 </div>
-                <div class="inputWithIcon">
-                    <label for="foto_perfil">adicionar foto de perfil</label>
+                <div class="inputWithIcon foto_input">
+                    <label id="img_perfil" for="foto_perfil"><img src="./assets/imagens/perfil/perfil0.jpg" alt="adicionar foto de perfil"></label>
                     <input type="file" name="foto_perfil" id="foto_perfil" accept="image/*">
+                    <label id="labelFoto" for="foto_perfil">adicionar foto de perfil</label>
                 </div>
                 <button type="submit" name="Cadastro">Cadastrar</button>
             </form>

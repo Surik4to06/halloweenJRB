@@ -14,8 +14,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $codigo_cla = substr(md5(uniqid(rand(), true)), 0, 10); // Gera um código único
     $foto_cla = $_FILES['foto_cla'];
 
-    $nome_foto_cla = $codigo_cla. '.jpg';
-    move_uploaded_file($foto_cla['tmp_name'], "./assets/imagens/fotos_clan/$nome_foto_cla");
+    $vtipo = explode("/", $foto_cla['type']);
+    $tipo = $vtipo[0] ?? '';
+    $extensao = "." . $vtipo[1] ?? '';
+
+    
+    if ((!$foto['error']) and ($tipo === 'image')) {
+        $nome_arquivo = $codigo_cla. $extensao;
+        move_uploaded_file($foto_cla['tmp_name'], "./assets/imagens/fotos_clan/$nome_foto_cla");
+    } else if ($tipo !== 'image') {
+        $nome_arquivo = null;
+    }
 
     $sql = "INSERT INTO clan (nome, codigo_clan, id_lider, id_foto_clan) VALUES (:nome, :cod, :id, :foto_cla)";
     $stmt = $conn->prepare($sql);
@@ -46,7 +55,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="./css/clans.css"> -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./css/default.css">
     <link rel="stylesheet" href="./css/criar_clan.css">
@@ -59,10 +67,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <h1>Criar Clã</h1>
             <div class="nome_do_clan">
                 <label for="nome_clan">Nome do Clã:</label>
-                <input type="text" name="nome_clan" placeholder="digite o nome do clãn" require>
+                <input class="inputs" type="text" name="nome_clan" placeholder="digite o nome do clãn" require>
             </div>
-            <div class="nome_do_clan foto img_cla">
-                <label for="foto_cla"><img id="imgFoto" src="./assets/imagens/foto_defult_clan.png" alt=""></label>
+            <div class="foto">
+                <label class="img_label" for="foto_cla"><img src="./assets/imagens/foto_defult_clan.png" alt="escolha uma foto para o seu clã"></label>
+                <label class="escolhe_foto" for="foto_cla">Escolha uma imagem para o seu Clã</label>
                 <input id="foto_cla" type="file" name="foto_cla" placeholder="selecione uma foto" accept="image/*">
             </div>
             

@@ -15,10 +15,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $conSenhar = trim($_POST['ConfirmarSenha']);
     $foto = $_FILES['foto_perfil'];
 
-    $nome_arquivo = $email. '.jpg';
-    move_uploaded_file($foto['tmp_name'], "../assets/imagens/perfil/$nome_arquivo");
+    $vtipo = explode("/", $foto['type']);
+    $tipo = $vtipo[0] ?? '';
+    $extensao = "." . $vtipo[1] ?? '';
+
     
-        
+    if ((!$foto['error']) and ($tipo === 'image')) {
+        $nome_arquivo = $email. $extensao;
+        move_uploaded_file($foto['tmp_name'], "../assets/imagens/perfil/$nome_arquivo");
+    
+    } else if ($tipo !== 'image') {
+        $nome_arquivo = null;
+    }
+
+
 
 // Hash da senha$password_hash = hashPassword($password);
 

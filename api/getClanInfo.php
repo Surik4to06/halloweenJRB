@@ -36,7 +36,7 @@ try {
     }
     
     // FUNCAO PARA PEGAR TODOS as aboboras REGISTRADO E OS CAPTURADOS EM UMA ARRAY
-    function getAboboraResultByUser($lider_cla, $conn){
+    function getAboboraResultByUser($lider_cla, $conn) {
         $listaDeAbobora = array();
         $sql = "SELECT a.id AS id, a.name AS name, a.tip AS tip,
         IF(rk.id_user IS NOT NULL, 1, 0) AS registrado FROM abobora a

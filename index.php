@@ -61,7 +61,6 @@
                         <a id='btnRanking' href='admin'><button>RANKING</button></a>
                         <a id='btnRankingUser' class="rank_clans" href='rankPlayers'><button>RANKING</button></a>
                         <a id='btnRankingUser' class="rank_clans" href='clans'><button>CLANS</button></a>
-                        <!-- <a href="#"><i id="btnMenu" class="bi bi-list"></i></a> -->
 
                         
 
