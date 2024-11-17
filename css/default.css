@@ -2,24 +2,25 @@
 
 :root {
     --red: #ff0000;
-    --orange: #ff5e00;
+    --orange: #fb702d;
     --black: #000;
-    --blue: dodgerBlue;
+    --blue: #1e90ff;
     --blue-selected: #1e72c0;
     --white: #fff;
+    --purple: #862fe0;
+    --darkpurple: #4c1b80;
+    --lightgreen: #88e032;
 }
 
 html {
     font-size: 62.5%;
 }
 
-
 * {
     margin: 0;
     padding: 0; 
     box-sizing: border-box;
     font-family: "Rubik Wet Paint", sans-serif;
-    
     user-select: none;
     -webkit-user-select: none; /* Safari */
     -moz-user-select: none; /* Firefox */

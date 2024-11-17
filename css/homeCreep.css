@@ -1,10 +1,8 @@
-
 body {
     display: flex;
     justify-content: center;
     background-color: var(--orange);
 }
-
 
 .container {
     min-height: 100vh;
@@ -12,7 +10,6 @@ body {
     background-color: var(--black);
     z-index: 11111;
 }
-
 
 .profile{
     display: flex;
@@ -171,7 +168,6 @@ body {
     height: .3rem;
 }
 
-
 .gallery {
     display: flex;
     flex-wrap: wrap;
@@ -183,7 +179,6 @@ body {
     flex-wrap: wrap;
     padding: 1rem;
 }
-
 
 .gallery-item {
     position: relative;
@@ -227,7 +222,6 @@ body {
     text-transform: uppercase;
 }
 
-
 .modal{
     position: fixed;
     top: 0;
@@ -266,7 +260,6 @@ body {
 .foto1 img{
     width: 100%;
 }
-
 
 .modal.oculto{
     display: none !important;

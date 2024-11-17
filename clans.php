@@ -17,7 +17,7 @@
     $getidclan = $getidclan['clan_id'];
 
     if ($getidclan == 0) {
-        header('Location: ./criar_clan');
+        header('Location: ./entrarClan');
     }
     
 ?>
@@ -53,8 +53,8 @@
                     <img id="imgClan" src="./assets/imagens/perfil/perfil0.jpg">
                 </div>
                 
-                <div class="profile-user"><!-- Elementos de captura dos corvos | Botões de Pagina Admin e Logout -->
-                    <div class="codigoCla"><button id="mostrarCod"> <img src="./assets//imagens/olhosAbertos.png" alt="mostrar codigo do cla" srcset=""> </button><button id="visibilidadeCod"><img src="./assets/imagens/olhosFechados.png" alt="esconder codigo do cla"></button><p>Codigo: </p> <span id="clan_cod">...</span></div>
+                <div class="profile-user"><!-- Elementos de captura das aboboras | Botões de Pagina Admin e Logout -->
+                    <div class="codigoCla"><button id="mostrarCod"> <img src="./assets//imagens/olhosAbertos.png" alt="mostrar codigo do cla" srcset=""> </button><button id="visibilidadeCod"><img src="./assets/imagens/olhosFechados.png" alt="esconder codigo do cla"></button><p>Codigo: </p> <span id="clan_cod">**********</span></div>
                     <div class="scoreBoard"> 
                         <div>
                             <h1> <span id="aboborasColetados">0</span></h1>

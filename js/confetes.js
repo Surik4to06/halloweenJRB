@@ -21,7 +21,7 @@ Particle = function(p0, p1, p2, p3) {
 
     this.time = 0;
     this.duration = 2 + Math.random() * 2;
-    this.color =  '#' + Math.floor((Math.random() * 0x0000)).toString(16);
+    this.color =  '#9d0000';
 
     this.w = 8;
     this.h = 6;
