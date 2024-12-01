@@ -87,6 +87,10 @@ body {
     margin-left: 10px; 
 }
 
+#btnSecret {
+    margin-right: 20px;
+}
+
 .profile-buttons a button{
     font-size: large;
     padding: 0 1rem;

@@ -34,10 +34,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // ----------------------
 
-
-
-
-
     function registroSucesso($id, $nome){
         nomeDaAbobora.textContent = $nome;
         fotoAbobora.setAttribute("src", `./assets/aboboras/abobora${$id}.jpg`);
