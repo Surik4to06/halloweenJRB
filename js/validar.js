@@ -31,11 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
 
-
     // ----------------------
-
-
-
 
 
     function registroSucesso($id, $nome){

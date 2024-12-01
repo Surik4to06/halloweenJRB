@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
             updateElementAttribute("profileImage", "src", `./assets/imagens/perfil/${data.foto}`);
         }
         updateElementText("corvosColetados", data.numCorvosColetados);
-        updateElementText("corvosTotais", data.numCorvosTotais);
         updateElementText("rank", data.rank);
         removeRanking(data.usertype);
         popularHOME(data.listaDeCorvos);
@@ -32,12 +31,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function removeRanking(usertype){
         const btnRanking = document.getElementById("btnRanking");
+        const btnSecret = document.getElementById('btnSecret');
+        const btnRankingUser = document.getElementById("rank_clans");
+        const btnRankingUserEspecial = document.getElementById('btnSecret');
+
         if (usertype == 2){
             btnRanking.remove();
+            btnRankingUserEspecial.remove();
+
         }
-        const btnRankingUser = document.getElementById("btnRankingUser");
+        if (usertype != 3) {
+            btnSecret.remove();
+        }
+        if (usertype == 3) {
+            btnRanking.remove();
+        }
+
         if (usertype == 1) {
             btnRankingUser.remove();
+            btnRankingUserEspecial.remove();
         }
     }
 
