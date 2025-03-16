@@ -34,7 +34,7 @@ try {
     // FUNCAO PARA PEGAR TODOS OS CORVOS REGISTRADO E OS CAPTURADOS EM UMA ARRAY
     function getCrowsResultByUser($userId, $conn){
         $listaDeCorvos = array();
-        $sql = "SELECT c.id AS id, c.name AS name, c.tip AS tip,
+        $sql = "SELECT c.id AS id, c.name AS nome, c.tip AS dica,
         IF(rk.id_user IS NOT NULL, 1, 0) AS registrado FROM crow c
         LEFT JOIN rank rk ON c.id = rk.id_crow AND rk.id_user = :userId";
         $stmt = $conn->prepare($sql);

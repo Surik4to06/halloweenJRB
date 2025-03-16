@@ -6,6 +6,7 @@ body{
     background-color: var(--black);
 }
 
+
 .container {
     color: var(--red);
     display: flex;
