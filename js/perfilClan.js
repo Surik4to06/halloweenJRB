@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     async function fetchClanData() {
         try {
-            const response = await fetch("api/getClanInfo");
+            const response = await fetch("./api/getClanInfo");
             if (!response.ok) {
                 throw new Error('Erro ao carregar as informações do clã.');
             }

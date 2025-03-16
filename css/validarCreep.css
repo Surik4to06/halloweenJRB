@@ -6,6 +6,7 @@ body{
     background-color: var(--black);
 }
 
+
 .container, .containerCreep {
     display: flex;
     flex-direction: column;
@@ -21,6 +22,8 @@ body{
     background-color: var(--orange);
     overflow: hidden;
 }
+
+
 
 #nomeDoCorvo, #usernameCreep, #nomeDaAbobora, #username {
     color: var(--black);
@@ -42,6 +45,7 @@ img{
 .img_teste{
     animation: corvo_aparecendo 1s forwards 1;
 }
+
 
 @keyframes corvo_aparecendo {
     0% {

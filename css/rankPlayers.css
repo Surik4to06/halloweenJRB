@@ -24,6 +24,10 @@ td {
     color: var(--red);
 }
 
+/* .linha {
+    border: solid 2px #000;
+} */
+
 a button{
     margin-top: 10px;
     margin-left: 10px;

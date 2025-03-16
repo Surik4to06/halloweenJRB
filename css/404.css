@@ -6,6 +6,7 @@ body{
     background-color: var(--black);
 }
 
+
 .container {
     display: flex;
     flex-direction: column;
@@ -21,6 +22,8 @@ body{
     box-shadow: var(--red) 0 0 1rem;
     overflow: hidden;
 }
+
+
 
 a button{
     margin-top: 20px;
